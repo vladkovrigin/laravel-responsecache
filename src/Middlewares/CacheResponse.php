@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
+use Jenssegers\Agent\Facades\Agent;
 use Spatie\ResponseCache\Events\CacheMissed;
 use Spatie\ResponseCache\Events\ResponseCacheHit;
 use Spatie\ResponseCache\Exceptions\CouldNotUnserialize;
@@ -113,6 +114,10 @@ class CacheResponse
 
         if (count($args) >= 1 && is_numeric($args[0])) {
             $tags = array_slice($args, 1);
+        }
+
+        if(config('responsecache.cache_tag_by_agent_enabled')) {
+            $tags[] = Agent::isDesktop() ? 'desktop' : 'mobile';
         }
 
         return array_filter($tags);

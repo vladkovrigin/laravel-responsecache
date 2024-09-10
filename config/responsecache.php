@@ -87,6 +87,8 @@ return [
      */
     'hasher' => \Spatie\ResponseCache\Hasher\DefaultHasher::class,
 
+    'cache_tag_by_agent_enabled' => env('RESPONSE_CACHE_TAG_BY_AGENT_ENABLED', false),
+
     /*
      * This class is responsible for serializing responses.
      */

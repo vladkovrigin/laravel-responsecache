@@ -1,5 +1,5 @@
 {
-    "name": "spatie/laravel-responsecache",
+    "name": "vladkovrigin/laravel-responsecache",
     "description": "Speed up a Laravel application by caching the entire response",
     "keywords": [
         "spatie",
